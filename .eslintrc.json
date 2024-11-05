@@ -13,7 +13,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "no-unused-vars": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
