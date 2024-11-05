@@ -32,13 +32,13 @@ function LoginPage() {
         <h2 className="font-bold text-2xl text-center text-gray-800">Iniciar Sesión</h2>
         <form className="space-y-6" onSubmit={handleLogin}>
           <div>
-            <label htmlFor="email" className="block font-medium text-gray-700 text-sm">
-              Correo Electrónico
+            <label htmlFor="user" className="block font-medium text-gray-700 text-sm">
+              Usuario
             </label>
             <input
               type="text"
-              id="email"
-              name="email"
+              id="user"
+              name="user"
               required
               value={user}
               onChange={(e) => setUser(e.target.value)}

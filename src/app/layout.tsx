@@ -1,9 +1,10 @@
 'use client'
 
-import './globals.css'
+import { PropsWithChildren } from 'react'
 import { SessionProvider } from 'next-auth/react'
+import './globals.css'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
       <body>
@@ -12,3 +13,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   )
 }
+
+export default RootLayout

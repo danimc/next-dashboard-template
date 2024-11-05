@@ -9,19 +9,33 @@ const handler = NextAuth({
         user: { label: 'User', type: 'text' },
         password: { label: 'Password', type: 'password' }
       },
-      authorize: async (credentials) => {
+      async authorize(credentials) {
+        const user = { id: '1', name: 'User', email: 'demo@test.com' }
+
         if (credentials?.user === 'super' && credentials?.password === 'password') {
-          return { id: '1', name: 'Super', email: 'test@test.com' }
+          return user
+        } else {
+          return null
         }
-        return null
       }
     })
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: '/login' // Redirige al login si no está autenticado
+    signIn: '/login'
   },
   session: {
     strategy: 'jwt'
+  },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id
+        token.name = user.name
+        token.email = user.email
+      }
+      return token
+    }
   }
 })
 
