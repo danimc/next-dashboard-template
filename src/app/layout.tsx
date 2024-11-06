@@ -6,7 +6,7 @@ import './globals.css'
 
 const RootLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="es">
       <body>
         <SessionProvider>{children}</SessionProvider>
       </body>
