@@ -31,3 +31,18 @@ A custom Next.js template for rapid dashboard development, tailored for scalable
    ```bash
    git clone https://github.com/danimc/next-dashboard-template
    cd next-dashboard-template
+
+2. **Define SHA token to Auth**
+   
+   Next Auth needs an environment variable to use jwt tokens auth
+   run:
+
+      ```bash
+      openssl rand -base64 32
+      
+      ```
+
+   now paste the result on you .env file 
+
+   ```env
+   NEXTAUTH_SECRET=YOUR_TOKEN

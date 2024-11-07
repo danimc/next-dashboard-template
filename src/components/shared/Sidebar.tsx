@@ -1,7 +1,16 @@
 'use client'
 import { useState } from 'react'
-import { Home, Menu } from 'lucide-react'
+import { Home, HomeIcon, List, Menu } from 'lucide-react'
 import Link from 'next/link'
+
+const links = [
+  { name: 'Home', href: '/home', icon: HomeIcon },
+  {
+    name: 'List Of Tickets',
+    href: '/list',
+    icon: List
+  }
+]
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
