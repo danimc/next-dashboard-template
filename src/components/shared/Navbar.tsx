@@ -1,6 +1,7 @@
 'use client'
 
 import { Bell, User } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
 
 const Navbar = () => {
@@ -19,22 +20,22 @@ const Navbar = () => {
           <div className="relative">
             <button
               onClick={() => setIsProfileOpen(!isProfileOpen)}
-              className="flex items-center focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 font-medium text-gray-700 text-sm hover:text-gray-800 focus:outline-none"
+              className="flex items-center font-medium text-gray-700 text-sm hover:text-gray-800 focus:outline-none"
             >
               <User size={20} className="mr-1" />
               <span className="md:inline hidden">Profile</span>
             </button>
             {isProfileOpen && (
               <div className="right-0 z-10 absolute bg-white shadow-lg mt-2 py-1 rounded-md w-48">
-                <a href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
+                <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
                   Your Profile
-                </a>
-                <a href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
+                </Link>
+                <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
                   Settings
-                </a>
-                <a href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
+                </Link>
+                <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
                   Sign out
-                </a>
+                </Link>
               </div>
             )}
           </div>
