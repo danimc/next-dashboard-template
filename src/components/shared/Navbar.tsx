@@ -1,6 +1,6 @@
 'use client'
 
-import { Bell, User, Search } from 'lucide-react'
+import { Bell, User } from 'lucide-react'
 import { useState } from 'react'
 
 const Navbar = () => {
