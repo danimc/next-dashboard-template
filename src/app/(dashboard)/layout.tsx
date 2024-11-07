@@ -15,7 +15,9 @@ const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
       <Sidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Navbar />
-        <main className="flex-1 bg-gray-100 p-4 overflow-x-hidden overflow-y-auto">{children}</main>
+        <main className="flex-1 bg-gray-100 p-4 text-gray-950 overflow-x-hidden overflow-y-auto">
+          {children}
+        </main>
       </div>
     </div>
   )

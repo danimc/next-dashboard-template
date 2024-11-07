@@ -1,18 +1,12 @@
 'use client'
 import { useState } from 'react'
-import { Home, HomeIcon, List, Menu } from 'lucide-react'
 import Link from 'next/link'
-
-const links = [
-  { name: 'Home', href: '/home', icon: HomeIcon },
-  {
-    name: 'List Of Tickets',
-    href: '/list',
-    icon: List
-  }
-]
+import { CheckCheckIcon, Menu } from 'lucide-react'
+import { links } from '@/lib/menuLinks'
+import { usePathname } from 'next/navigation'
 
 const Sidebar = () => {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const toggleSidebar = () => setIsOpen(!isOpen)
 
@@ -30,30 +24,21 @@ const Sidebar = () => {
         } lg:relative lg:translate-x-0 transition duration-200 ease-in-out z-10`}
       >
         <Link href="/home" className="flex items-center space-x-2 px-4 text-white">
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-          <span className="font-extrabold text-2xl">Dashboard</span>
+          <CheckCheckIcon /> <span className="font-extrabold text-2xl">Dashboard</span>
         </Link>
         <nav>
-          <Link
-            href="/home"
-            className="block hover:bg-gray-700 px-4 py-2.5 rounded hover:text-white transition duration-200"
-          >
-            <Home className="inline-block mr-2" size={20} />
-            Home
-          </Link>
+          {links.map(({ name, path, icon: Icon }) => (
+            <Link
+              key={name}
+              href={path}
+              className={`block hover:bg-gray-700 px-4 py-2.5 rounded hover:text-white transition duration-200 ${
+                pathname === path ? 'bg-gray-700 text-white' : ''
+              }`}
+            >
+              <Icon className="inline-block mr-2" size={20} />
+              {name}
+            </Link>
+          ))}
         </nav>
       </div>
     </>
