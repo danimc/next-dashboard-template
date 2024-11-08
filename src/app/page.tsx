@@ -9,8 +9,6 @@ export default function HomeRedirect() {
   const router = useRouter()
 
   useEffect(() => {
-    console.log(status, { router })
-
     if (status === 'authenticated') {
       router.push('/home')
     } else if (status === 'unauthenticated') {
