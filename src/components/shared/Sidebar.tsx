@@ -13,7 +13,9 @@ const Sidebar = () => {
   return (
     <>
       <button
-        className="top-4 left-4 z-20 fixed lg:hidden bg-red-800 p-2 rounded-md text-white"
+        className={` z-20 fixed lg:hidden  p-1 rounded-md text-white ${
+          isOpen ? 'top-[26px] left-[13rem] bg-gray-600' : 'top-4 left-32 bg-neutral-500'
+        }  `}
         onClick={toggleSidebar}
       >
         <Menu size={24} />
