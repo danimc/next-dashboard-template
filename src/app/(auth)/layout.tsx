@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const LoginLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <main className="flex justify-center items-center bg-gradient-to-r from-blue-500 to-indigo-800 min-h-screen">
+    <main className="flex justify-center items-center bg-gradient-to-r from-blue-700 to-blue-800 min-h-screen">
       {children}
     </main>
   )
