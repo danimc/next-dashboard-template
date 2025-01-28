@@ -5,6 +5,17 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Eye, EyeClosed } from 'lucide-react'
+import {
+  Box,
+  Button,
+  Container,
+  TextField,
+  Typography,
+  InputAdornment,
+  IconButton,
+  Alert,
+  Stack
+} from '@mui/material'
 
 function LoginPage() {
   const [user, setUser] = useState('')
@@ -30,58 +41,87 @@ function LoginPage() {
   }
 
   return (
-    <div className="space-y-4 bg-white shadow-lg p-8 rounded-lg w-[400px] max-w-md ">
-      <h2 className="font-bold text-2xl text-center text-gray-800">Iniciar Sesión</h2>
-      <form className="space-y-4" onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="user" className="block font-medium text-gray-700 text-sm">
-            Usuario
-          </label>
-          <input
-            type="text"
-            id="user"
-            name="user"
-            placeholder="Tu nombre de usuario"
-            required
-            value={user}
-            onChange={(e) => setUser(e.target.value)}
-            className="border-gray-300 mt-1 px-3 py-2 border rounded-md focus:ring focus:ring-indigo-500 w-full focus:outline-none text-black"
-          />
-        </div>
-        <div className="relative">
-          <label htmlFor="password" className="block font-medium text-gray-700 text-sm">
-            Contraseña
-          </label>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            id="password"
-            name="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="border-gray-300 mt-1 px-3 py-2 border rounded-md focus:ring focus:ring-indigo-500 w-full focus:outline-none text-black"
-          />
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
-          >
-            {showPassword ? <Eye size={24} /> : <EyeClosed size={24} />}
-          </button>
-          <Link href={'/login/reset'}>
-            <p className="hover:underline text-[14px] text-black">¿Olvidaste tu contraseña?</p>
-          </Link>
-        </div>
-        {error && <p className="text-red-500 text-sm">{error}</p>}
-
-        <button
-          type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 mt-4 py-2 rounded-md focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 w-full font-semibold text-white focus:outline-none"
+    <Container maxWidth="sm">
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh"
+      >
+        <Box
+          component="form"
+          onSubmit={handleLogin}
+          sx={{
+            width: '100%',
+            maxWidth: 400,
+            p: 4,
+            boxShadow: 3,
+            borderRadius: 2,
+            bgcolor: 'background.paper'
+          }}
         >
-          Iniciar Sesión
-        </button>
-      </form>
-    </div>
+          <Typography variant="h5" fontWeight="bold" align="center" gutterBottom>
+            Iniciar Sesión
+          </Typography>
+
+          <Stack spacing={3}>
+            <TextField
+              label="Usuario"
+              variant="outlined"
+              fullWidth
+              required
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+            />
+            <TextField
+              label="Contraseña"
+              variant="outlined"
+              type={showPassword ? 'text' : 'password'}
+              fullWidth
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => setShowPassword(!showPassword)}>
+                      {showPassword ? <Eye size={20} /> : <EyeClosed size={20} />}
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
+            />
+            <Link href="/login/reset" passHref>
+              <Typography
+                variant="body2"
+                color="primary"
+                align="right"
+                sx={{ textDecoration: 'underline', cursor: 'pointer' }}
+              >
+                ¿Olvidaste tu contraseña?
+              </Typography>
+            </Link>
+            {error && <Alert severity="error">{error}</Alert>}
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{
+                py: 1.5,
+                fontWeight: 'bold',
+                textTransform: 'none',
+                boxShadow: 'none',
+                ':hover': { boxShadow: 2 }
+              }}
+            >
+              Iniciar Sesión
+            </Button>
+          </Stack>
+        </Box>
+      </Box>
+    </Container>
   )
 }
 
