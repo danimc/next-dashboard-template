@@ -17,6 +17,8 @@ const Navbar = () => {
           <button className="mr-4 p-1 text-gray-400 hover:text-gray-600">
             <Bell size={20} />
           </button>
+
+
           <div className="relative">
             <button
               onClick={() => setIsProfileOpen(!isProfileOpen)}
@@ -39,6 +41,8 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
+
         </div>
       </div>
     </nav>
