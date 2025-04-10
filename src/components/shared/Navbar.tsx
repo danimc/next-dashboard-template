@@ -25,12 +25,9 @@ const Navbar = () => {
               <User size={20} className="mr-1" />
               <span className="md:inline hidden">Profile</span>
             </button>
-
               <UserMenu 
                 isProfileOpen = {isProfileOpen}
-                setIsProfileOpen = {setIsProfileOpen}
-              />
-              
+              />            
           </div>
         </div>
       </div>
