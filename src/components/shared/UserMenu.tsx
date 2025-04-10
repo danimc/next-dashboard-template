@@ -1,25 +1,23 @@
-import Navbar from "./Navbar"
+'use client'
 
+import { useState } from 'react'
+import Link from 'next/link'
 
-    <div className="relative">
-    <button
-    onClick={() => setIsProfileOpen(!isProfileOpen)}
-    className="flex items-center font-medium text-gray-700 text-sm hover:text-gray-800 focus:outline-none"
-    >
-    <User size={20} className="mr-1" />
-    <span className="md:inline hidden">Profile</span>
-    </button>
-    {isProfileOpen && (
-    <div className="right-0 z-10 absolute bg-white shadow-lg mt-2 py-1 rounded-md w-48">
+const UserMenu = ({isProfileOpen, setIsProfileOpen}) => {
+  return (
+    isProfileOpen && (
+      <div className="right-0 z-10 absolute bg-white shadow-lg mt-2 py-1 rounded-md w-48">
         <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
-        Your Profile
+          Your Profile
         </Link>
         <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
-        Settings
+          Settings
         </Link>
         <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
-        Sign out
+          Sign out
         </Link>
-    </div>
-    )}
-    </div>
+      </div>
+    )
+  )
+}
+export default UserMenu
