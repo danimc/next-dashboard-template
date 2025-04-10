@@ -1,8 +1,8 @@
 'use client'
 
 import { Bell, User } from 'lucide-react'
-import Link from 'next/link'
 import { useState } from 'react'
+import  UserMenu  from './UserMenu'
 
 const Navbar = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false)
@@ -25,19 +25,9 @@ const Navbar = () => {
               <User size={20} className="mr-1" />
               <span className="md:inline hidden">Profile</span>
             </button>
-            {isProfileOpen && (
-              <div className="right-0 z-10 absolute bg-white shadow-lg mt-2 py-1 rounded-md w-48">
-                <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
-                  Your Profile
-                </Link>
-                <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
-                  Settings
-                </Link>
-                <Link href="#" className="block hover:bg-gray-100 px-4 py-2 text-gray-700 text-sm">
-                  Sign out
-                </Link>
-              </div>
-            )}
+              <UserMenu 
+                isProfileOpen = {isProfileOpen}
+              />            
           </div>
         </div>
       </div>
