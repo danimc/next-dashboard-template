@@ -1,6 +1,6 @@
 const SecondPage = () => {
 
-  const objetos = [
+  const user = [
     { id: 1, name: "Erick", age: 23, country: "México" },
     { id: 2, name: "Luis", age: 28, country: "Chile" },
     { id: 3, name: "Ana", age: 30, country: "Perú" },
@@ -23,8 +23,8 @@ const SecondPage = () => {
         </thead>
         <tbody>
 
-          {objetos.map((persona) => (
-            <tr key = {persona.id} className = "border-y border-gray-400">
+          {user.map((persona) => (
+            <tr key={persona.id} className="border-y border-gray-400">
               <td className="px-4 py-2">{persona.id}</td>
               <td className="px-4 py-2">{persona.name}</td>
               <td className="px-4 py-2">{persona.age}</td>
@@ -42,43 +42,3 @@ const SecondPage = () => {
 }
 
 export default SecondPage
-
-
-
-
-// <table className="table min-w-full text-center text-sm ">
-// <thead >
-//   <tr className="border-y border-gray-400">
-//     <th className="px-4 py-2">ID</th>
-//     <th className="px-4 py-2">NOMBRE</th>
-//     <th className="px-4 py-2">CORREO</th>
-//     <th className="px-4 py-2">DATO</th>
-//   </tr>
-// </thead>
-// <tbody className="">
-//     <tr className="border-y border-gray-400 ">
-//       <th className="px-4 py-2">numero</th>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//     </tr>
-//     <tr className="border-y border-gray-400">
-//       <th className="px-4 py-2">numero</th>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//     </tr>
-//     <tr className="border-y border-gray-400">
-//       <th className="px-4 py-2">numero</th>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//     </tr>
-//     <tr className="border-y border-gray-400">
-//       <th className="px-4 py-2">numero</th>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//       <td className="px-4 py-2">Objeto</td>
-//     </tr>
-// </tbody>
-// </table>
