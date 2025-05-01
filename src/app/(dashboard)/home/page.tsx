@@ -1,8 +1,7 @@
-import React from "react";
-import { FaTicketSimple, FaClipboardCheck } from "react-icons/fa6";
-import { MdOutlinePendingActions } from "react-icons/md";
-import { TbUserQuestion } from "react-icons/tb";
-import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@heroui/react";
+import React from 'react'
+import { FaTicketSimple, FaClipboardCheck } from 'react-icons/fa6'
+import { MdOutlinePendingActions } from 'react-icons/md'
+import { TbUserQuestion } from 'react-icons/tb'
 
 const HomePage = () => {
   return (
@@ -12,24 +11,21 @@ const HomePage = () => {
       </div>
       <div className="p-6">
         <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-          <Card
-            title="Tickets Reportados"
-            subtitle="0"
-            href="#"
-            Icon={FaTicketSimple}
-          />
+          <Card title="Tickets Reportados" subtitle="0" href="#" Icon={FaTicketSimple} />
           <Card title="Tickets Abiertos" subtitle="0" href="#" Icon={MdOutlinePendingActions} />
           <Card title="Tickets Atendidos" subtitle="2" href="#" Icon={FaClipboardCheck} />
-          <Card
-            title="Tickets sin Asignar"
-            subtitle="10"
-            href="#"
-            Icon={TbUserQuestion}
-          />
+          <Card title="Tickets sin Asignar" subtitle="10" href="#" Icon={TbUserQuestion} />
+        </div>
+        <div className='bg-gray-400 border-solid border-gray-400 border-spacing-2 p-1 m-4 grid'>
+          <div className="bg-slate-500 m-4 p-8 justify-items-center items-center w-1/4">
+            <p className="font-sans font-semibold">Hola</p>
+          </div>
+          <div className="bg-slate-500 m-4 p-8 justify-items-center items-center w-1/4">
+            <p className="font-sans font-semibold">Hola</p>
+          </div>
         </div>
       </div>
     </section>
-
   )
 }
 
@@ -50,40 +46,7 @@ const Card = ({ title, subtitle, Icon, href }) => {
         {subtitle}
       </p>
     </a>
-  );
-};
-
-
-export default function App() {
-  return (
-    <Card className="max-w-[400px]">
-      <CardHeader className="flex gap-3">
-        <Image
-          alt="heroui logo"
-          height={40}
-          radius="sm"
-          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-          width={40}
-        />
-        <div className="flex flex-col">
-          <p className="text-md">HeroUI</p>
-          <p className="text-small text-default-500">heroui.com</p>
-        </div>
-      </CardHeader>
-      <Divider />
-      <CardBody>
-        <p>Make beautiful websites regardless of your design experience.</p>
-      </CardBody>
-      <Divider />
-      <CardFooter>
-        <Link isExternal showAnchorIcon href="https://github.com/heroui-inc/heroui">
-          Visit source code on GitHub.
-        </Link>
-      </CardFooter>
-    </Card>
-  );
+  )
 }
-
-
 
 export default HomePage
